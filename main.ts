@@ -20,7 +20,7 @@ f f f 1 1 1 1 1 1 b b b f . . .
 . . . . . f f f 5 5 5 5 5 f . . 
 . . . . . . . . f f f f f f . . 
 `, SpriteKind.Player)
-let mySprite = sprites.create(img`
+let Fruit = sprites.create(img`
 . 8 8 . . . . . 
 . 8 6 8 . . . . 
 . . 8 6 8 . . . 
@@ -37,7 +37,7 @@ let mySprite = sprites.create(img`
 8 7 7 6 7 6 8 . 
 . 8 7 6 7 8 . . 
 . . 8 7 6 8 . . 
-`, SpriteKind.Player)
+`, SpriteKind.Food)
 let PlayerTwo = sprites.create(img`
 . . . . . . . . . . . . . c c f f f . . . . . . . . . . . . . . 
 . . . . . . . . . . . . c d d b b f . . . . . . . . . . . . . . 
