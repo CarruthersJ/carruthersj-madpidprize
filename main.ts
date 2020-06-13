@@ -56,5 +56,8 @@ f b b b 1 1 1 1 f f 1 b c b c b b b c c c c c c c b b b c f . .
 . . . . . . . c c c c c f b d b b f c . . . . . . . . . . . . . 
 . . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . 
 `, SpriteKind.PLayerTwo)
+PlayerOne.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
+PlayerTwo.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
+Fruit.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
 controller.moveSprite(PlayerOne, 100, 100)
 controller.player2.moveSprite(PlayerTwo)
