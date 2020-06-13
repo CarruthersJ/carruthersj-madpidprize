@@ -1,8 +1,25 @@
 namespace SpriteKind {
     export const PLayerTwo = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.player1.changeScoreBy(1)
+    PlayerOne.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
+    PlayerTwo.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
+    Fruit.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
+    info.startCountdown(5)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.PLayerTwo, function (sprite, otherSprite) {
+    info.player2.changeScoreBy(1)
+    PlayerOne.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
+    PlayerTwo.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
+    info.startCountdown(5)
+})
+let PlayerTwo: Sprite = null
+let Fruit: Sprite = null
+let PlayerOne: Sprite = null
+info.startCountdown(5)
 scene.setBackgroundColor(9)
-let PlayerOne = sprites.create(img`
+PlayerOne = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . c c c c c . . . 
 . . . . . . c c 5 5 5 5 5 c . . 
@@ -20,7 +37,7 @@ f f f 1 1 1 1 1 1 b b b f . . .
 . . . . . f f f 5 5 5 5 5 f . . 
 . . . . . . . . f f f f f f . . 
 `, SpriteKind.Player)
-let Fruit = sprites.create(img`
+Fruit = sprites.create(img`
 . 8 8 . . . . . 
 . 8 6 8 . . . . 
 . . 8 6 8 . . . 
@@ -38,7 +55,7 @@ let Fruit = sprites.create(img`
 . 8 7 6 7 8 . . 
 . . 8 7 6 8 . . 
 `, SpriteKind.Food)
-let PlayerTwo = sprites.create(img`
+PlayerTwo = sprites.create(img`
 . . . . . . . . . . . . . c c f f f . . . . . . . . . . . . . . 
 . . . . . . . . . . . . c d d b b f . . . . . . . . . . . . . . 
 . . . . . . . . . . . c d d b b f . . . . . . . . . . . . . . . 
@@ -61,3 +78,6 @@ PlayerTwo.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
 Fruit.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
 controller.moveSprite(PlayerOne, 100, 100)
 controller.player2.moveSprite(PlayerTwo)
+PlayerOne.setFlag(SpriteFlag.StayInScreen, true)
+PlayerTwo.setFlag(SpriteFlag.StayInScreen, true)
+Fruit.setFlag(SpriteFlag.StayInScreen, true)
